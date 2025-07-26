@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita Chapter 3 - Kids Version</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e8 50%, #ffffff 100%);
+            overflow-x: hidden;
+        }
+
+        /* Music Controls */
+        .music-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 50;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: scale(1.1);
+        }
+
+        .control-btn svg {
+            width: 20px;
+            height: 20px;
+            color: #1565c0;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: scale(1.1);
+        }
+
+        .back-btn svg {
+            width: 20px;
+            height: 20px;
+            color: #1565c0;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 32px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .float-1 { top: 80px; left: 80px; }
+        .float-2 { top: 160px; right: 128px; animation-delay: 1.5s; }
+        .float-3 { bottom: 128px; left: 64px; }
+        .float-4 { bottom: 160px; right: 80px; animation-delay: 1.5s; }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #1565c0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .tree-emoji {
+            font-size: 4rem;
+            color: #4caf50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #424242;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+            align-items: center;
+        }
+
+        /* Left Side - Image */
+        .image-section {
+            position: relative;
+        }
+
+        .image-container {
+            background: linear-gradient(135deg, #ff9800, #f44336);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .krishna-image {
+            width: 100%;
+            max-width: 400px;
+            height: 440px;
+            background: url('https://ih1.redbubble.net/image.3080057837.7897/flat,750x,075,f-pad,750x1000,f8f8f8.jpg') center/cover;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-caption {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .scene-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            line-height: 1.4;
+            margin-top: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        /* Right Side - Krishna's Words */
+        .teachings-section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .teachings-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .teaching-quote {
+            background: linear-gradient(135deg, #e3f2fd, #e8f5e8);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .teaching-quote p {
+            color: #424242;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* YouTube Section */
+        .youtube-section {
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .youtube-title {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .youtube-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        .youtube-btn {
+            background: white;
+            color: #cc0000;
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .youtube-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Flowchart Section */
+        .flowchart-section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #1565c0;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .flow-item {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-item:not(:last-child)::after {
+            content: '↓';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #1565c0;
+        }
+
+        .flow-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 8px;
+        }
+
+        .flow-description {
+            color: #424242;
+            line-height: 1.5;
+        }
+
+        /* What We Learn Section */
+        .learning-section {
+            margin-bottom: 48px;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .learning-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .learning-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .learning-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .learning-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .learning-text {
+            color: #424242;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* Poems Section */
+        .poems-section {
+            margin-bottom: 48px;
+        }
+
+        .poems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .poem-card {
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .poem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
+        }
+
+        .poem-card:nth-child(1) { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+        .poem-card:nth-child(2) { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+        .poem-card:nth-child(3) { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+        .poem-card:nth-child(4) { background: linear-gradient(135deg, #d299c2, #fef9d7); }
+
+        .poem-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .poem-emoji {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .poem-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #424242;
+        }
+
+        .poem-content {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .sanskrit-text {
+            font-style: italic;
+            color: #5d4037;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .english-text {
+            color: #424242;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: linear-gradient(135deg, #4caf50, #2196f3);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .quiz-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .quiz-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quiz-btn {
+            background: white;
+            color: #2196f3;
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Quiz Modal */
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-content {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .quiz-progress {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 24px;
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(135deg, #4caf50, #2196f3);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .question-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #424242;
+            margin-bottom: 24px;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .option-btn {
+            background: #f5f5f5;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .option-btn:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .option-btn.selected {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .option-btn.correct {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+
+        .option-btn.incorrect {
+            background: #ffebee;
+            border-color: #f44336;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #4caf50, #2196f3);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .next-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .explanation {
+            background: #f0f8ff;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .quiz-result {
+            text-align: center;
+        }
+
+        .result-emoji {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .result-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #424242;
+            margin-bottom: 16px;
+        }
+
+        .result-score {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .stars-rating {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .star {
+            font-size: 32px;
+            color: #ddd;
+        }
+
+        .star.filled {
+            color: #ffc107;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .tree-emoji {
+                font-size: 3rem;
+            }
+
+            .poems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flowchart {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" preload="auto" loop>
+        <source src="download-by-mp34ringtones-com-44309.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Controls -->
+    <div class="music-controls">
+        <button class="control-btn" onclick="toggleMute()">
+            <svg id="volumeIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343A8 8 0 004.222 16.5l1.061 1.061A6 6 0 007.5 19.5h9a6 6 0 002.217-1.939l1.061-1.061A8 8 0 0017.657 6.343z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Back Button -->
+<div class="back-btn" onclick="goHome()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-element float-1">🌸</div>
+        <div class="floating-element float-2">🦋</div>
+        <div class="floating-element float-3">🌺</div>
+        <div class="floating-element float-4">🌿</div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="main-title">
+                Chapter 3: The Path of Action
+                <span class="tree-emoji">🌳</span>
+            </h1>
+            <p class="subtitle">
+                Krishna teaches Arjuna about doing work without attachment and the importance of selfless action!
+            </p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            <!-- Left Side - Image -->
+            <div class="image-section">
+                <div class="image-container">
+                    <div class="krishna-image"></div>
+                    <div class="image-caption">Krishna Teaching About Action</div>
+                    <div class="scene-description">
+                        Krishna explains to Arjuna that everyone must act, but we should work without being attached to the results. Like a tree that gives fruits freely, we should do our duties with love and without expecting rewards.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Krishna's Words -->
+            <div class="teachings-section">
+                <h2 class="teachings-title">
+                    📖 Krishna's Wisdom on Action
+                </h2>
+                
+                <div class="teaching-quote">
+                    <p>"Everyone must do some work. Even I, who need nothing, continue to work for the good of all!"</p>
+                </div>
+                
+                <div class="teaching-quote">
+                    <p>"Do your work like offering flowers to God - with love, but don't worry about getting anything back."</p>
+                </div>
+                
+                <div class="teaching-quote">
+                    <p>"A person who works without selfish desires becomes free and happy, like a bird flying in the sky."</p>
+                </div>
+
+                <div class="teaching-quote">
+                    <p>"When you help others and do good work, you become closer to God and find true joy."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- YouTube Section -->
+        <div class="youtube-section">
+            <div style="font-size: 48px; margin-bottom: 16px;">📺</div>
+            <h2 class="youtube-title">Watch Complete Chapter</h2>
+            <p class="youtube-description">
+                Listen to the complete Chapter 3 explanation by Pranavananda Das Garu
+            </p>
+            <a href="https://www.youtube.com/watch?v=7XodMGVTiNc&list=PLB7obXUKYYrS_1avmfNqhIRV-BJUPnXOm&index=8" target="_blank" class="youtube-btn">
+                🎥 View Complete Chapter Here
+            </a>
+        </div>
+
+        <!-- Flowchart Section -->
+        <div class="flowchart-section">
+            <h2 class="section-title">🌳 Main Things to Learn from This Chapter</h2>
+            <div class="flowchart">
+                <div class="flow-item">
+                    <div class="flow-title">🎯 T: Tyag (Renunciation)</div>
+                    <div class="flow-description">
+                        Learning to let go of selfish desires and work for the good of everyone, not just ourselves.
+                    </div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="flow-title">🪜 R: Rungs of Yoga Ladder</div>
+                    <div class="flow-description">
+                        Step by step progress in spiritual life - from selfish action to selfless service to God.
+                    </div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="flow-title">⭐ E: Exemplary Behaviour</div>
+                    <div class="flow-description">
+                        Being a good example for others by doing the right thing, just like how Krishna sets an example.
+                    </div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="flow-title">👹 E: Enemy of Soul</div>
+                    <div class="flow-description">
+                        Understanding that anger and greed are enemies that stop us from being happy and doing good.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What We Learn Section -->
+        <div class="learning-section">
+            <h2 class="section-title">🌟 What We Learn</h2>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="learning-item">
+                        <span class="learning-icon">🎯</span>
+                        <span class="learning-text">Everyone must do some work in life</span>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-item">
+                        <span class="learning-icon">❤️</span>
+                        <span class="learning-text">Work with love, not for rewards</span>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-item">
+                        <span class="learning-icon">🌳</span>
+                        <span class="learning-text">Be like a tree - give freely to others</span>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-item">
+                        <span class="learning-icon">⭐</span>
+                        <span class="learning-text">Set a good example for others to follow</span>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-item">
+                        <span class="learning-icon">😇</span>
+                        <span class="learning-text">Control anger and greed to find peace</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poems Section -->
+        <div class="poems-section">
+            <h2 class="section-title">🎵 Beautiful Poems from Chapter 3 🎵</h2>
+            <div class="poems-grid">
+                <div class="poem-card">
+                    <div class="poem-header">
+                        <div class="poem-emoji">🎯</div>
+                        <h3 class="poem-title">Verse 3.8</h3>
+                    </div>
+                    <div class="poem-content">
+                        <p class="sanskrit-text">नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः</p>
+                        <p class="english-text">"Do your prescribed work, for action is better than inaction. Even maintaining your body is not possible without work."</p>
+                    </div>
+                </div>
+
+                <div class="poem-card">
+                    <div class="poem-header">
+                        <div class="poem-emoji">🌸</div>
+                        <h3 class="poem-title">Verse 3.9</h3>
+                    </div>
+                    <div class="poem-content">
+                        <p class="sanskrit-text">यज्ञार्थात्कर्मणोऽन्यत्र लोकोऽयं कर्मबन्धनः</p>
+                        <p class="english-text">"Work done as sacrifice to God liberates you, but work done for personal gain binds you like chains."</p>
+                    </div>
+                </div>
+
+                <div class="poem-card">
+                    <div class="poem-header">
+                        <div class="poem-emoji">👑</div>
+                        <h3 class="poem-title">Verse 3.21</h3>
+                    </div>
+                    <div class="poem-content">
+                        <p class="sanskrit-text">यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः</p>
+                        <p class="english-text">"Whatever great people do, others follow. Whatever standards they set, the world follows."</p>
+                    </div>
+                </div>
+
+                <div class="poem-card">
+                    <div class="poem-header">
+                        <div class="poem-emoji">🔥</div>
+                        <h3 class="poem-title">Verse 3.37</h3>
+                    </div>
+                    <div class="poem-content">
+                        <p class="sanskrit-text">काम एष क्रोध एष रजोगुणसमुद्भवः</p>
+                        <p class="english-text">"It is lust and anger, born from passion, that are the great enemies and devourers of the soul."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <div style="font-size: 48px; margin-bottom: 16px;">🎯</div>
+            <h2 class="quiz-title">Test Your Knowledge!</h2>
+            <p class="quiz-description">
+                How well did you understand Chapter 3? Take this fun quiz to find out! 
+                Answer 5 questions about Krishna's teachings on selfless action.
+            </p>
+            <button class="quiz-btn" onclick="startQuiz()">🚀 Attempt Quiz Now!</button>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="quiz-modal">
+        <div class="quiz-content">
+            <button class="close-btn" onclick="closeQuiz()">&times;</button>
+            <div id="quizContainer">
+                <!-- Quiz content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isMuted = false;
+        let audio;
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let showingResult = false;
+
+        const questions = [
+            {
+                question: "What does Krishna say about work and action?",
+                options: ["We should never work", "Everyone must do some work", "Only rich people should work", "Work is bad for us"],
+                correct: 1,
+                explanation: "Krishna teaches that everyone must do some work. Even He, who needs nothing, continues to work for the good of all beings."
+            },
+            {
+                question: "How should we do our work according to Krishna?",
+                options: ["Only for money", "With love, like offering to God", "Very slowly", "Only when we feel like it"],
+                correct: 1,
+                explanation: "Krishna says we should do our work like offering flowers to God - with love, but without worrying about getting anything back."
+            },
+            {
+                question: "What example does Krishna give about giving freely?",
+                options: ["Like a river", "Like a tree", "Like the sun", "Like a mountain"],
+                correct: 1,
+                explanation: "Krishna teaches us to be like a tree that gives fruits freely to everyone without expecting anything in return."
+            },
+            {
+                question: "What are the enemies of the soul according to Chapter 3?",
+                options: ["Sadness and fear", "Anger and greed", "Hunger and thirst", "Work and rest"],
+                correct: 1,
+                explanation: "Krishna identifies anger (krodha) and greed/lust (kama) as the great enemies that prevent us from finding peace and doing good."
+            },
+            {
+                question: "Why should great people set good examples?",
+                options: ["To show off", "Because others follow them", "To become famous", "To earn money"],
+                correct: 1,
+                explanation: "Krishna explains that whatever great people do, others follow. So leaders should set good examples for the benefit of everyone."
+            }
+        ];
+        function goHome() {
+            window.location.href = 'home.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            audio = document.getElementById('backgroundMusic');
+            initializeAudio();
+        });
+
+        function initializeAudio() {
+            if (!audio) return;
+            
+            audio.volume = 0.3;
+            audio.loop = true;
+            
+            // Try to play on user interaction
+            document.body.addEventListener('click', function() {
+                if (audio.paused && !isMuted) {
+                    audio.play().catch(err => console.log("Audio play failed:", err));
+                }
+            }, { once: true });
+        }
+
+        function toggleMute() {
+            if (!audio) return;
+            
+            isMuted = !isMuted;
+            const volumeIcon = document.getElementById('volumeIcon');
+            
+            if (isMuted) {
+                audio.pause();
+                volumeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+                `;
+            } else {
+                audio.play().catch(err => console.log("Audio play failed:", err));
+                volumeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343A8 8 0 004.222 16.5l1.061 1.061A6 6 0 007.5 19.5h9a6 6 0 002.217-1.939l1.061-1.061A8 8 0 0017.657 6.343z"/>
+                `;
+            }
+        }
+
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            showingResult = false;
+            document.getElementById('quizModal').style.display = 'flex';
+            showQuestion();
+        }
+
+        function closeQuiz() {
+            document.getElementById('quizModal').style.display = 'none';
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = questions[currentQuestion];
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            
+            container.innerHTML = `
+                <div class="quiz-header">
+                    <h3 style="color: #424242; font-size: 20px;">Question ${currentQuestion + 1} of ${questions.length}</h3>
+                </div>
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" style="width: ${progress}%"></div>
+                </div>
+                <div class="question-text">${question.question}</div>
+                <div class="options-grid">
+                    ${question.options.map((option, index) => `
+                        <button class="option-btn" onclick="selectAnswer(${index})">${option}</button>
+                    `).join('')}
+                </div>
+                <button class="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+            `;
+        }
+
+        function selectAnswer(answerIndex) {
+            selectedAnswer = answerIndex;
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach((btn, index) => {
+                btn.classList.remove('selected');
+                if (index === answerIndex) {
+                    btn.classList.add('selected');
+                }
+            });
+            document.querySelector('.next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === null) return;
+            
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.option-btn');
+            
+            // Show correct/incorrect answers
+            options.forEach((btn, index) => {
+                if (index === question.correct) {
+                    btn.classList.add('correct');
+                } else if (index === selectedAnswer && selectedAnswer !== question.correct) {
+                    btn.classList.add('incorrect');
+                }
+                btn.disabled = true;
+            });
+            
+            // Show explanation
+            const container = document.getElementById('quizContainer');
+            const explanationDiv = document.createElement('div');
+            explanationDiv.className = 'explanation';
+            explanationDiv.innerHTML = `
+                <strong>${selectedAnswer === question.correct ? '✅ Correct!' : '❌ Not quite right!'}</strong><br>
+                ${question.explanation}
+            `;
+            container.appendChild(explanationDiv);
+            
+            if (selectedAnswer === question.correct) {
+                score++;
+            }
+            
+            // Update button text
+            const nextBtn = document.querySelector('.next-btn');
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.textContent = 'Show Results';
+                nextBtn.onclick = showResults;
+            } else {
+                nextBtn.textContent = 'Next Question';
+                nextBtn.onclick = () => {
+                    currentQuestion++;
+                    selectedAnswer = null;
+                    showQuestion();
+                };
+            }
+        }
+
+        function showResults() {
+            const container = document.getElementById('quizContainer');
+            const percentage = (score / questions.length) * 100;
+            let stars = 0;
+            let emoji = '😔';
+            let message = 'Keep trying!';
+            
+            if (percentage >= 80) {
+                stars = 5;
+                emoji = '🎉';
+                message = 'Excellent work!';
+            } else if (percentage >= 60) {
+                stars = 4;
+                emoji = '😊';
+                message = 'Great job!';
+            } else if (percentage >= 40) {
+                stars = 3;
+                emoji = '🙂';
+                message = 'Good effort!';
+            } else if (percentage >= 20) {
+                stars = 2;
+                emoji = '😐';
+                message = 'You can do better!';
+            } else {
+                stars = 1;
+                emoji = '😔';
+                message = 'Keep learning!';
+            }
+            
+            container.innerHTML = `
+                <div class="quiz-result">
+                    <div class="result-emoji">${emoji}</div>
+                    <h2 class="result-title">Quiz Complete!</h2>
+                    <div class="result-score">You scored ${score} out of ${questions.length} (${Math.round(percentage)}%)</div>
+                    <div class="stars-rating">
+                        ${[1,2,3,4,5].map(i => `<span class="star ${i <= stars ? 'filled' : ''}">⭐</span>`).join('')}
+                    </div>
+                    <p style="font-size: 18px; color: #666; margin-bottom: 24px;">${message}</p>
+                    <button class="quiz-btn" onclick="closeQuiz()">Return to Chapter</button>
+                </div>
+            `;
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('quizModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuiz();
+            }
+        });
+    </script>
+</body>
+</html>
